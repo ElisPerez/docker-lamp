@@ -1,36 +1,31 @@
-<html>
-    <head>
-        <title>Welcome to LAMP Infrastructure</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <?php
-                echo "<h1>¡Hola, Líder te da la bienvenida!</h1>";
+<!DOCTYPE html>
+<html lang="es">
 
-                $conn = mysqli_connect('db', 'root', 'test', "dbname");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Salón de Belleza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="build/css/app.css">
+</head>
 
-                $query = 'SELECT * From Person';
-                $result = mysqli_query($conn, $query);
+<body>
+    <div class="contenedor-estetica">
+        <div class="imagen"></div>
+        <div class="app">
+            <header class="header">
+                <h1>App Peluqueria</h1>
+            </header>
 
-                echo '<table class="table table-striped">';
-                echo '<thead><tr><th></th><th>id</th><th>name</th></tr></thead>';
-                while($value = $result->fetch_array(MYSQLI_ASSOC)){
-                    echo '<tr>';
-                    echo '<td><a href="#"><span class="glyphicon glyphicon-search"></span></a></td>';
-                    foreach($value as $element){
-                        echo '<td>' . $element . '</td>';
-                    }
+            <div class="seccion">
+                <h2>Servicios</h2>
+                <p class="text-center">Elige tus Servicios a Continuación</p>
+                <div id="servicios" class="listado-servicios">
 
-                    echo '</tr>';
-                }
-                echo '</table>';
-
-                $result->close();
-                mysqli_close($conn);
-            ?>
+                </div>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
